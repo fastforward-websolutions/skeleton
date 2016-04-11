@@ -28,13 +28,14 @@ gulp.task('build:scripts', t.getTask('scripts'));
 gulp.task(
   'build',
   gulp.series(
-    'clean',
+    //FIXME: This breaks down the maven execution...
+    //'clean',
     gulp.parallel(
       gulp.series(
         'build:content',
-        'build:pages'
+        'build:pages',
+        'build:assets'
       ),
-      'build:assets',
       'build:styles',
       'build:scripts'
     )
